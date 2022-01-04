@@ -4,20 +4,23 @@
 package programmers.hash;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 //class Solution
 public class PlayerNotFinishRace {
     public String solution(String[] participant, String[] completion) {
-        Arrays.sort(participant);
-        Arrays.sort(completion);
+        String answer = "";
 
-        int i = 0;
+        HashMap<String, Integer> hashMap = new HashMap<>();
+        for (String player: participant) hashMap.put(player, hashMap.getOrDefault(player, 0) + 1);
+        for (String player: completion) hashMap.put(player, hashMap.get(player) - 1);
 
-        for (i = 0; i < completion.length; i++) {
-            if (participant[i].equals(completion[i])) continue;
-            return participant[i];
+        for (String key: hashMap.keySet()) {
+            if (hashMap.get(key) != 0) {
+                answer = key;
+            }
         }
-        return participant[i];
+        return answer;
     }
 }
 
