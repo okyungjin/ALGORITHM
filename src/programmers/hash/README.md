@@ -11,4 +11,6 @@
 3. [위장](https://programmers.co.kr/learn/courses/30/lessons/42578)
    1. [Java](java/Camouflage.java)
    2. [Python](python/Camouflage.py)
-4. [베스트 앨범](java/BestAlbum.java)
+4. [베스트 앨범](https://programmers.co.kr/learn/courses/30/lessons/42579)
+   1. [Java](java/BestAlbum.java)
+   2. [Python](python/BestAlbum.py)
