@@ -5,5 +5,5 @@
    - [Source](targetNumber.py)
    - [문제](https://programmers.co.kr/learn/courses/30/lessons/43165)
 2. 네트워크
-   - [Source]()
+   - [Source](network.py)
    - [문제](https://programmers.co.kr/learn/courses/30/lessons/43162)
