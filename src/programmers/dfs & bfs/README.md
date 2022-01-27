@@ -7,3 +7,6 @@
 2. 네트워크
    - [Source](network.py)
    - [문제](https://programmers.co.kr/learn/courses/30/lessons/43162)
+3. 단어 변환
+   - [Source](changeWord.py)
+   - [문제](https://programmers.co.kr/learn/courses/30/lessons/43163?language=python3)
