@@ -1,7 +1,7 @@
 # 간단한 다익스트라
 INF = int(1e9)
 
-f = open('src/이코테/최단거리/dijkstra.txt', 'r')
+f = open('src/이코테/최단경로/dijkstra.txt', 'r')
 
 node_cnt, edge_cnt = map(int, f.readline().rstrip().split())
 start = int(f.readline().rstrip())
