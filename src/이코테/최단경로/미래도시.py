@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 import pprint as pp
 
-f = open('src/이코테/최단경로/미래도시.txt', 'r')
+# f = open('src/이코테/최단경로/미래도시.txt', 'r')
+f = open('src/이코테/최단경로/미래도시2.txt', 'r')
 
 INF = int(1e9)
 
@@ -28,7 +29,7 @@ for r in range(1, n + 1):
 
 result = company[1][k] + company[k][x]
 
-if result == INF:
+if result >= INF:
     print(-1)
 else:
     print(result)
