@@ -10,7 +10,6 @@ node_cnt, edge_cnt = map(int, f.readline().rstrip().split())
 start = int(f.readline().rstrip())
 
 graph = [[] for _ in range(node_cnt + 1)]
-visited = [False] * (node_cnt + 1)
 distance = [INF] * (node_cnt + 1)
 
 for _ in range(edge_cnt):
