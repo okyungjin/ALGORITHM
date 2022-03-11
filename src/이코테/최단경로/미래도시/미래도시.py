@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 import pprint as pp
 
-# f = open('src/이코테/최단경로/미래도시.txt', 'r')
-f = open('src/이코테/최단경로/미래도시2.txt', 'r')
+# f = open('src/이코테/최단경로/미래도시/미래도시.txt', 'r')
+f = open('src/이코테/최단경로/미래도시/미래도시2.txt', 'r')
 
 INF = int(1e9)
 

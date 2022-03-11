@@ -3,7 +3,7 @@ import pprint as pp
 
 INF = int(1e9)
 
-f = open('src/이코테/최단경로/전보.txt', 'r')
+f = open('src/이코테/최단경로/전보/전보.txt', 'r')
 
 # n: 도시의 개수
 # m: 통로의 개수
