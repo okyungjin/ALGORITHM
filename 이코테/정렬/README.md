@@ -1,3 +1,15 @@
+# Table of Contents
+- [선택 정렬 (Selection Sort)](#선택-정렬-selection-sort)
+- [삽입 정렬 (Insertion Sort)](#삽입-정렬-insertion-sort)
+- [퀵 정렬 (Quick Sort)](#퀵-정렬-quick-sort)
+- [계수 정렬 (Count Sort)](#계수-정렬-count-sort)
+- [파이썬의 정렬 라이브러리](#파이썬의-정렬-라이브러리)
+  - [sorted](#sorted)
+  - [sort](#sort)
+  - [key 활용](#key-활용)
+----
+<br/>
+
 # 선택 정렬 (Selection Sort)
 
 매번 가장 작은 데이터를 **선택**한다는 의미에서 **선택 정렬**이라고 한다.
@@ -37,6 +49,9 @@ print(array) # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
 
 ----
+
+<br/>
+
 
 # 삽입 정렬 (Insertion Sort)
 데이터를 하나씩 확인하면서 각 데이터를 적절한 위치에 **삽입**한다.
