@@ -242,3 +242,41 @@ for i in range(len(count)):
 예를 들어 데이터가 0과 999,999 단 2개만 존재한다면 리스트의 크기가 100만개가 되도록 선언해야 한다. 
 
 따라서 항상 사용할 수 있는 정렬 알고리즘은 아니며, **동일한 값을 가지는 데이터가 여러 개 등장할 때 적합**하다.
+
+
+----
+
+<br/>
+
+# 파이썬의 정렬 라이브러리
+## sorted
+`sorted()` 는 퀵 정렬과 동작 방식이 비슷한 **병합 정렬**을 기반으로 만들어졌다.
+> 병합 정렬은 일반적으로 퀵 정렬보다 느리지만 최악의 경우에도 $O(NlogN)$을 보장한다.
+```py
+array = [7, 5, 9, 0, 3, 1, 6, 2, 4, 8]
+result = sorted(array)
+
+print(array) # [7, 5, 9, 0, 3, 1, 6, 2, 4, 8]
+print(result) # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+```
+
+## sort
+리스트가 반환되지 않고 내부 원소가 바로 정렬된다.
+```py
+array = [7, 5, 9, 0, 3, 1, 6, 2, 4, 8]
+array.sort()
+print(array) # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+```
+
+## key 활용
+`sorted()` 나 `sort()` 를 이용할 때는 `key` 파라미터를 입력으로 받을 수 있다. `key` 값으로는 하나의 함수가 들어가야 하며, 이는 정렬의 기준이 된다.
+
+```py
+array = [('banana', 2), ('apple', 5), ('mango', 3)]
+
+def setting(data):
+    return data[1]
+
+result = sorted(array, key=setting)
+print(result) # [('banana', 2), ('mango', 3), ('apple', 5)]
+```
