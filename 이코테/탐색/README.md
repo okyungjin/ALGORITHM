@@ -6,9 +6,8 @@
   - [구현](#구현)
     - [재귀 함수 사용](#재귀-함수-사용)
     - [반복문 사용](#반복문-사용)
+    - [빠르게 입력 받기](#빠르게-입력-받기)
 
-
-----
 
 # 순차 탐색 (Sequential Search)
 리스트에서 특정한 데이터를 찾기 위해 앞에서부터 데이터를 하나씩 확인하는 방법이다.
@@ -68,9 +67,74 @@ start = mid # 설정한다.
 
 ## 구현 
 ### 재귀 함수 사용
-```py```
+```py
+def rec_binsearch(array, target, start, end):
+    if start > end:
+        return None
+
+    mid = (start + end) // 2;
+
+    if array[mid] == target:
+        return mid
+    elif array[mid] > target:
+        return rec_binsearch(array, target, start, mid - 1)
+    else:
+        return rec_binsearch(array, target, mid + 1, end)
+
+    
+array = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
+
+target = int(input())
+
+result = rec_binsearch(array, target, 0, len(array) - 1)
+
+if result == None:
+    print('There is no element matching the input value.')
+else:
+    print(result + 1)
+```
 
 ### 반복문 사용
-```py```
+```py
+def loop_binsearch(array, target, start, end):
+    while start <= end:
+        mid = (start + end) // 2
 
-----
+        if array[mid] == target:
+            return mid;
+        elif array[mid] > target:
+            end = mid - 1
+        else:
+            start = mid + 1
+            
+    return None;
+
+array = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
+
+target = int(input())
+
+result = loop_binsearch(array, target, 0, len(array) - 1)
+
+if result == None:
+    print('There is no element matching the input value.')
+else:
+    print(result + 1)
+```
+
+> **탐색 범위가 20,000,000 (2천만)을 넘어가면 이진 탐색으로 문제에 접근해보자.**
+> 처리해야 할 데이터가 10,000,000 (천만)을 넘어가면 이진 탐색과 같이 $O(logN)$의 속도를 내야하는 알고리즘을 적용해야 하는 경우가 많다.
+
+### 빠르게 입력 받기
+
+이진 탐색 문제는 입력 데이터가 많거나 탐색 범위가 매우 넓은 편이다.
+입력 데이터의 개수가 많을 때 `input()` 함수를 사용하면 동작 속도가 느려져 시간 초과로 오답 판정을 받을 수 있다.
+
+입력 데이터가 많은 문제는 `sys` 라이브러리의 `readline()` 함수를 이용하면 시간 초과를 피할 수 있다.
+
+```py
+import sys
+input_data = sys.stdin.readline().rstrip()
+
+print(input_data)
+```
+입력 후 엔터가 줄 바꿈 기호(`\n`)로 변환되므로, `sys` 라이브러리를 사용할 때는 한 줄 입력을 받고 나서 `rstrip()` 을 꼭 적어주도록 한다.
