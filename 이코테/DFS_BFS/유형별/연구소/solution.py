@@ -15,6 +15,7 @@
 
 import os
 from enum import Enum
+import pprint as pp
 
 class Area(Enum):
 	EMPTY = 0
@@ -33,6 +34,7 @@ graph = []
 temp = []
 
 n, m = map(int, f.readline().split())
+
 
 for _ in range(n):
 	graph.append(list(map(lambda x: Area(int(x)) , f.readline().split())))
@@ -94,7 +96,5 @@ def dfs(fense_cnt):
 dfs(0)
 
 answer = int(f.readline())
-if result == answer:
-	print('정답: {:d}'.format(result))
-else:
-	print('오답: {:d}'.format(result))
+print('정답' if result == answer else '오답', end = ': ')
+print(result)
