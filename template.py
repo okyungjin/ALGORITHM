@@ -1,3 +1,9 @@
+#-*-coding:utf-8-*-
+
+# 난이도 
+# 풀이 시간 m분
+# 시간 제한 s초
+
 import os
 
 __location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
