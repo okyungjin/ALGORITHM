@@ -13,22 +13,21 @@ data = f.readline().rstrip()
 
 capitals = []
 num_sum = 0
+
 for char in data:
-  if char.isupper():
-    capitals.append(char)
-  else:
-    num_sum = int(char)
+	if char.isupper():
+		capitals.append(char)
+	else:
+		num_sum += int(char)
 
-  capitals.sort()
-  
-  capitals.
+capitals.sort()
 
+result = ''
+for cap in capitals:
+	result += cap;
 
-  print()
-  print()
-  # 
-
+result += str(num_sum)
 answer = f.readline().rstrip()
 
-print(data)
-print('정답' if data == answer else '오답')
+print(result)
+print('정답' if result == answer else '오답')
