@@ -8,17 +8,23 @@
 # https://programmers.co.kr/learn/courses/30/lessons/60059
 
 def solution(key, lock):
+    print(rotateClockWise90(lock))
     new_lock = generateNewLock(key, lock)
     size = len(new_lock) - len(key) + 1
-    for i in range(size):
-        for j in range(size):
-            if checkIsKeyValid(i, j, size, key, new_lock):
-                return True
+    for _ in range(3):
+        for i in range(size):
+            for j in range(size):
+                if checkIsKeyValid(i, j, size, key, new_lock):
+                    return True
+        new_lock = rotateClockWise90(new_lock)
     return False
 
 
 def rotateClockWise90(arr):
-    return list(zip(*arr[::-1]))
+    result = []
+    for tup in zip(*arr[::-1]):
+        result.append(list(tup))
+    return result
 
 
 def generateNewLock(key, lock):
@@ -58,6 +64,3 @@ lock = [[1, 1, 1],[1, 1, 0],[1, 0, 1]]
 # lock = [[1, 1, 1, 0, 0],[1, 1, 0, 1, 1],[1, 0, 1, 0, 1],[1, 0, 1, 0, 1],[1, 0, 1, 0, 1]]
 
 print(solution(key, lock))
-
-
-
