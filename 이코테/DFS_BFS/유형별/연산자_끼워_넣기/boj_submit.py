@@ -1,21 +1,17 @@
-#-*-coding:utf-8-*-
-
-# 난이도 2
-# 풀이 시간 30분
-# 시간 제한 2초
-
-# [BOJ] 삼성전자 SW 역량 테스트
 # https://www.acmicpc.net/problem/14888
 
-import os
+# PyPy3
+# 메모리: 637644 KB
+# 시간: 2584 ms
+
+import sys
 from itertools import permutations
 
-__location__ = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
-f = open(os.path.join(__location__, 'input1.txt'), 'r')
+input = sys.stdin.readline
 
-n = int(f.readline())
-nums = list(map(int, f.readline().split()))
-operators = list(map(int, f.readline().split())) # [+, -, *, /]
+n = int(input())
+nums = list(map(int, input().split()))
+operators = list(map(int, input().split())) # [+, -, *, /]
 
 min_ans = int(1e9)
 max_ans = -int(1e9)
@@ -33,7 +29,6 @@ def cal(oper_idx, result, next_num):
             return num
         return - 1 * (abs(result) // abs(next_num))
 
-
 opers = []
 for i in range(4):
     while operators[i] > 0:
@@ -50,4 +45,3 @@ for exp in list(permutations(opers, n - 1)):
 
 print(max_ans)
 print(min_ans)
-print(max_ans == int(f.readline()), min_ans ==  int(f.readline()))
