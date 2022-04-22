@@ -101,3 +101,6 @@ hs_err_pid*
 
 # iml
 *.iml
+
+# Code Runner
+tempCodeRunnerFile.py
