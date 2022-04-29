@@ -13,7 +13,7 @@ def solution(n, lost, reserve):
                 counts[i] -= 1
                 counts[i - 1] += 1
                 continue
-            elif counts[i + 1] == 1:
+            elif counts[i + 1] == 0:
                 counts[i] -= 1
                 counts[i + 1] += 1
                 
