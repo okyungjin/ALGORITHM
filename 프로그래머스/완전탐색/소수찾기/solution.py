@@ -1,47 +1,24 @@
 import math
+from itertools import permutations
 
-generated_nums = []
 
 def solution(numbers):
-    num_list = list(numbers)
+    answer = []
+    nums = list(numbers)
+    perm = []
+
+    for i in range(1, len(numbers) + 1):
+        perm += list(permutations(nums, i))
+    new_nums = [int(('').join(p)) for p in perm]
     
-    size = len(num_list)
+    for num in new_nums:
+        if is_prime_number(num):
+            answer.append(num)
+    return len(set(answer))
     
-    for i in range(size):
-        visited = [False] * size
-        visited[i] = True
-        generate(num_list[i], visited, num_list)
-
-
-    new_num_list = []
-    for str_num in generated_nums:
-        num = int(str_num)
-        if num in new_num_list: continue
-        new_num_list.append(num)
-
-    print(new_num_list)
-
-    count = 0
-    for num in new_num_list:
-        if is_primer_number(int(num)):
-            count += 1 
-
-    return count
-
-
-def generate(str_num, visited, num_list):
-    generated_nums.append(str_num)
-    for i in range(len(visited)):
-        if visited[i]: continue
-
-        new_str = str_num + num_list[i]
-        visited[i] = True
-
-        generate(new_str, visited, num_list)
-
-
-def is_primer_number(x):
-    if x == 0 or x == 1: return False
+        
+def is_prime_number(x):
+    if x < 2: return False
 
     for i in range(2, int(math.sqrt(x)) + 1):
         if x % i == 0:
@@ -49,6 +26,5 @@ def is_primer_number(x):
     return True
 
 
-
 # print(solution('17'))
-print(solution('011'))
+# print(solution('011'))
