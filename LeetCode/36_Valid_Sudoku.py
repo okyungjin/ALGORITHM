@@ -40,11 +40,6 @@ class Solution:
         return True
     
 
-        
-
-    
-
-
 # TEST
 solution = Solution()
 
