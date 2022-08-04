@@ -1,4 +1,4 @@
-# Table of Contents
+# LeetCode
 - [Easy](#easy)
   - [190. Reverse Bits](#190-reverse-bits)
   - [268. Missing Number](#268-missing-number)
@@ -8,8 +8,6 @@
 
 <br>
 
-
-# LeetCode
 ## Easy
 ### [190. Reverse Bits](./190_Reverse_Bits.py)
 #### 1차 풀이 (22.08.03)
