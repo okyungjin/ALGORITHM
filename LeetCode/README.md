@@ -1,5 +1,6 @@
 # LeetCode
 - [Easy](#easy)
+  - [1. Two Sum](#1-two-sum)
   - [190. Reverse Bits](#190-reverse-bits)
   - [268. Missing Number](#268-missing-number)
 - [Medium](#medium)
@@ -9,6 +10,37 @@
 <br>
 
 ## Easy
+### [1. Two Sum](./1_Two_Sum.py)
+#### 1차 풀이 (22.08.05)
+- `enumerate` 를 사용한 for loop를 2번 사용하도록 하였다.
+- **같은 데이터에 반복문을 수행할 때는 분산된 로직을 합칠 수 있는지 고려해보자.**
+
+```py
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        nums_dict = { num: idx for idx, num in enumerate(nums)}
+
+        for idx, first_num in enumerate(nums):
+            second_num = target - first_num
+            if second_num in nums_dict:
+                if idx == nums_dict[second_num]: continue
+                return [idx, nums_dict[second_num]]
+```
+
+#### 2차 풀이 (22.08.05)
+- for문을 1번만 수행하도록 로직을 변경하였다.
+```py
+class Solution:
+    # 2차 풀이 (22.08.05)
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        seen = {}
+        for idx, num in enumerate(nums):
+            another = target - num
+
+            if another in seen: 
+                return [seen[another], idx]
+            seen[num] = idx
+```
 ### [190. Reverse Bits](./190_Reverse_Bits.py)
 #### 1차 풀이 (22.08.03)
 - bitwise operator를 다루는 문제는 처음이라 낯설었지만 흥미로웠다. 특히 마지막 비트 구하는 `(n >> i) & 1` 로직과 reverse한 bit의 합계를 구하는 `result += 1 << (31 - i)` 로직이 인상깊었다.

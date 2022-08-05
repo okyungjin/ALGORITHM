@@ -3,6 +3,7 @@
 from typing import List
 
 class Solution:
+    # 1차 풀이 (22.08.05)
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         nums_dict = { num: idx for idx, num in enumerate(nums)}
 
@@ -11,6 +12,17 @@ class Solution:
             if second_num in nums_dict:
                 if idx == nums_dict[second_num]: continue
                 return [idx, nums_dict[second_num]]
+
+class Solution:
+    # 2차 풀이 (22.08.05)
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        seen = {}
+        for idx, num in enumerate(nums):
+            another = target - num
+
+            if another in seen: 
+                return [seen[another], idx]
+            seen[num] = idx
 
 
 solution = Solution()
