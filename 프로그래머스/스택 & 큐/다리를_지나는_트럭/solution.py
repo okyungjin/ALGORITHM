@@ -1,21 +1,43 @@
-from collections import deque
-import heapq
+# https://school.programmers.co.kr/learn/courses/30/lessons/42583?language=python3
 
+from collections import deque
 
 def solution(bridge_length, weight, truck_weights):
-    trucks = deque(truck_weights)
+    q_trucks = deque(truck_weights)
+
+    # init bridge
+    first_truck = q_trucks.popleft()
+    bridge = deque([first_truck])
+    time = 1
+    truck_cnt_on_bridge = 1
+    weight_sum_on_bridge = first_truck
     
-    return trucks
+    while bridge:
+        time += 1
+
+        # all truck passed
+        if truck_cnt_on_bridge == 0: break
+
+        # last truck passes through the bridge
+        if len(bridge) == bridge_length:
+            last_truck = bridge.popleft()
+            if last_truck != 0:
+                weight_sum_on_bridge -= last_truck
+                truck_cnt_on_bridge -= 1
+
+        # new truck can be put on the bridge
+        if q_trucks and weight_sum_on_bridge + q_trucks[0] <= weight:
+            cur_truck = q_trucks.popleft()
+            bridge.append(cur_truck)
+            weight_sum_on_bridge += cur_truck
+            truck_cnt_on_bridge += 1
+        else:
+            bridge.append(0)
+
+
+    return time
 
 
 print(solution(2, 10, [7,4,5,6]))
-# print(solution(100, 100, [10]))
-# print(solution(100, 100, [10,10,10,10,10,10,10,10,10,10]))
-
-
-# bridge라는 큐를 만들어서 담아
-# 시간 계속 카운트하면서
-# truck_wiight에서 pop해서 bridge에 담아
-
-# tw이 비고 bridge도 빌때까지 반복해
-
+print(solution(100, 100, [10]))
+print(solution(100, 100, [10,10,10,10,10,10,10,10,10,10]))
