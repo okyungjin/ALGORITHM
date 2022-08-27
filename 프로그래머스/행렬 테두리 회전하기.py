@@ -71,16 +71,3 @@ def print_2d_graph(graph):
 print(solution(6, 6, [[2,2,5,4],[3,3,6,6],[5,1,6,3]])) # [8, 10, 25]
 print(solution(3, 3, [[1,1,2,2],[1,2,2,3],[2,1,3,2],[2,2,3,3]])) # [1, 1, 5, 3]
 print(solution(100, 97, [[1,1,100,97]])) # [1]
-
-''' [Unsed] Slice rectangle '''
-'''
-def slice_rectangle_based_on_upper_left_point_and_lower_right_point(graph: List[List[int]], upper_left: Point, lower_right: Point) -> List[List[int]]:
-    res = []
-    for row in range(upper_left.x - 1, lower_right.x):
-        res.append(graph[row][upper_left.y - 1:lower_right.y])
-    return res
-
-
-def rotate_number(graph: List[List[int]]) -> List[List[int]]:
-    return [[]]
-'''
