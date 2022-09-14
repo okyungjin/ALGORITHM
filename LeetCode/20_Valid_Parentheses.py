@@ -4,17 +4,17 @@
 class Solution:
     def isValid(self, s: str) -> bool:
         stack = []
-        bracket_pair = {')':'(', '}':'{', ']':'['}
+        bracketPair = {')': '(', '}': '{', ']': '['}
 
         for bracket in s:
-            if bracket in bracket_pair.values():
+            if bracket in bracketPair.values():
                 stack.append(bracket)
                 continue
 
-            if stack and bracket_pair[bracket] == stack[-1]:
+            if stack and bracketPair[bracket] == stack[-1]:
                 stack.pop()
             else:
-                return False 
+                return False
             
         return False if stack else True
 
